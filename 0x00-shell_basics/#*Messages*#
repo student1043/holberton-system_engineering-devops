@@ -1,0 +1,10 @@
+("emacs" "7-movethatfile")
+Loading 00debian-vars...done
+For information about GNU Emacs and the GNU system, type C-h C-a.
+Setting up indent for shell type bash
+setting up indent stuff
+Indentation variables are now local.
+Indentation setup for shell type bash
+Loading vc-git...done
+call-interactively: End of buffer
+Wrote /holberton-system_engineering-devops/0x00-shell_basics/*Messages*
