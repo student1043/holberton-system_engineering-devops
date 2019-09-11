@@ -1,2 +1,2 @@
-B#!/bin/bash
-mv /tmp/betty holberton
+#!/bin/bash
+mv /tmp/betty holberton 
