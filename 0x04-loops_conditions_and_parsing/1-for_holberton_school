@@ -2,5 +2,5 @@
 # This script is displaying "Holberton School" 10 times
 for ((k=0; k<10; k++))
 do
-echo "Holberton School"
+    echo "Holberton School"
 done
