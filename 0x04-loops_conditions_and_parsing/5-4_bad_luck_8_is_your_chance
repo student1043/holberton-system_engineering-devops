@@ -3,8 +3,8 @@
 # at the forth iteration prints "bad luck"
 # at the eith iteration prints "good luck"
 # else "Holberton School"
-k=0
-while [ $k != 10 ];
+k=1
+while [ $k != 11 ];
 do
 if [ $k == 4 ];
 then
