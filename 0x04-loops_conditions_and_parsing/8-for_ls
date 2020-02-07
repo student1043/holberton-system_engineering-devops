@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# File listing
+for Doc in *;
+do
+echo "$Doc" | cut -f2 -d'-'
+done

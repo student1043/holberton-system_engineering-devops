@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Bad luck numbers
+# at the forth iteration prints "bad luck"
+# at the eith iteration prints "good luck"
+# else "Holberton School"
+k=0
+while [ $k != 10 ];
+do
+if [ $k == 4 ];
+then
+echo "bad luck"
+elif [ $k == 8 ];
+then
+echo "good luck"
+else
+echo "Holberton School"
+fi
+k=$((k + 1))
+done
