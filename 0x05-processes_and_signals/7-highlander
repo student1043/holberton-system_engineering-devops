@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Print to infinity and kill
-pkill -f 4-to_infinity_and_beyond
 while true
 do
-trap "echo I am invincible!!!" SIGTERM
-echo To infinity and beyond
-sleep 2
+    trap "echo I am invincible!!!" SIGTERM
+    echo "To infinity and beyond"
+    sleep 2
 done
