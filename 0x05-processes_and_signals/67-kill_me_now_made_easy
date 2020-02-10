@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Print to infinity and kill
+pkill -f 7-highlander
