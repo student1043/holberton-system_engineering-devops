@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Print the running process of the current system
+ps -auxf
