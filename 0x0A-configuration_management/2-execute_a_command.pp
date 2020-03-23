@@ -1,6 +1,5 @@
 # Task 2
 exec { 'killmenow':
-  command => 'pkill killmenow',
-  path    => '/',
+  command => '/usr/bin/pkill killmenow',
 }
 
