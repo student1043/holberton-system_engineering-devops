@@ -1,5 +1,6 @@
 # Task 2
-exec { '/killmenow':
-  pkill => 'killmenow',
+exec { 'killmenow':
+  command => 'pkill killmenow',
+  path    => '/',
 }
 
