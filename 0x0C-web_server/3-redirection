@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # Install nginx and configure
-sudo apt -y update
-sudo apt -y install nginx
-sudo ufw allow 'Nginx HTTP'
-echo 'Holberton School' > /var/www/html/index.nginx-debian.html
-sudo sed -i '/listen 80 default_server;/a \\trewrite ^/redirect_me$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-enabled/default
+my_config="Location {\nrewrite ^/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n"
+sudo sed -i "301 $my_config" /etc/nginx/sites-available/default
 service nginx start
 
