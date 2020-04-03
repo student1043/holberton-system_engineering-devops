@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Install nginx and configure
-my_config="Location {\nadd_header ^/(.*)$ X-Served-By hostname;}\n"
-sudo sed -i "\n/a $my_config" /etc/nginx/sites-available/default
+my_config="\\\tadd_header ^/(.*)$ X-Served-By hostname;\n"
+sudo sed -i "30i\n/a $my_config" /etc/nginx/sites-available/default
 service nginx start
 
