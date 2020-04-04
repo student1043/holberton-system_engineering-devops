@@ -1,4 +1,4 @@
-#!/usr/bin/env bashon: "start"
+#!/usr/bin/env bash
 # debugging nginx port 80
 cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
 sudo service nginx start
