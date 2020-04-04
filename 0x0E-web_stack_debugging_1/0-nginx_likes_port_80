@@ -1,6 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bashon: "start"
 # debugging nginx port 80
-sudo ufw allow 'Nginx HTTP'
+sed -i "s/server {/\n\tlisten 80;\n\tlisten [::]:80;\n\t/" /etc/nginx/sites-enabled/default
 sudo service nginx start
 sudo service nginx restart
-
