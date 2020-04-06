@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Change User
+sudo su - $1 -c 'whoami'
+
