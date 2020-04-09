@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# running nginx as nginx user
+echo "user nginx;" >> /etc/nginx/nginx.conf
+
