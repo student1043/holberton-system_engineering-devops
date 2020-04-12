@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Installing and configuring haproxy to load balance between web-01 and web-02
+sudo apt-get update -y
+sudo apt-get install haproxy=1.6.\*
+cat "listen 
