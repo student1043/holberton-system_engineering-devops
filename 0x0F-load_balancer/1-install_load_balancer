@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Installing and configuring haproxy to load balance between web-01 and web-02
-sudo apt-get update -y
+sudo apt-get -y update
 sudo apt-get install haproxy=1.6.\*
 sudo service haproxy start
-echo "ENABLED=1" | sudo tee /etc/default/haproxy
-echo -e "frontend http_front\n\tbind *:80\n\tdefault_bachend http_backend\n\nbackend http_backend\n\tserver 1043-web-01 35.237.146.194 check\n\tserver 1043-web-02 54.234.224.67 check" | sudo tee /etc/haproxy/haproxy.cfg
+echo -e "frontend http_front\n\tbind *:80\n\tdefault_backend http_backend\n\nbackend http_backend\n\tserver 1043-web-01 35.229.103.77:80 check\n\tserver 1043-web-02 54.234.224.67:80 check" | sudo tee -a /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
