@@ -1,30 +1,30 @@
 #!/usr/bin/env bash
 # Domain Info Digger
 digger () {
-    if [ $# -eq 2 ]
-        then
-        recordtype=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
-        subdomain=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
-        destination=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
-        echo "The subdomain $subdomain is a $recordtype record and points to $destination"
-    elif [ $# -eq 1 ]
-        then
-        recordtype1=$(dig www."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
-        subdomain1=$(dig www."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
-        destination1=$(dig www."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
-        recordtype2=$(dig lb-01."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
-        subdomain2=$(dig lb-01."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
-        destination2=$(dig lb-01."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
-        recordtype3=$(dig web-01."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
-        subdomain3=$(dig web-01."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
-        destination3=$(dig web-01."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
-        recordtype4=$(dig web-02."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
-        subdomain4=$(dig web-02."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
-        destination4=$(dig web-02."$1" | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
+    if [ $# -eq 1 ]
+    then
+        recordtype1=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
+        subdomain1=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
+        destination1=$(dig www.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
+        recordtype2=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
+        subdomain2=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
+        destination2=$(dig lb-01.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
+        recordtype3=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
+        subdomain3=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
+        destination3=$(dig web-01.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
+        recordtype4=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
+        subdomain4=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
+        destination4=$(dig web-02.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
         echo "The subdomain $subdomain1 is a $recordtype1 record and points to $destination1"
         echo "The subdomain $subdomain2 is a $recordtype2 record and points to $destination2"
         echo "The subdomain $subdomain3 is a $recordtype3 record and points to $destination3"
         echo "The subdomain $subdomain4 is a $recordtype4 record and points to $destination4"
+    elif [ $# -eq 2 ]
+    then
+        recordtype=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $4}')
+        subdomain=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F'.' '{print $1}')
+        destination=$(dig $2.$1 | grep -A1 'ANSWER SECTION:' | awk 'NR>1' | awk -F' ' '{print $5}')
+        echo "The subdomain $subdomain is a $recordtype record and points to $destination"
     fi
 }
-digger "$1" "$2"
+digger $1 $2
