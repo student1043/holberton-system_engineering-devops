@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-import requests
 import csv
+import requests
 import sys
 
 
