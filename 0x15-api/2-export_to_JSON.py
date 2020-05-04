@@ -13,6 +13,7 @@ if __name__ == "__main__":
     rdata = r.json()
     total = 0
     done = 0
+    last = 0
     mytitles = []
     for i in userdata:
         name = i['name']
@@ -30,8 +31,10 @@ if __name__ == "__main__":
             f.write("{")
             f.write('"{}": ['.format(sys.argv[1]))
             for elem in rdata:
+                last += 1
                 f.write(json.dumps({'task': elem["title"],
                                     'completed': elem["completed"],
                                     'username': username}))
-                f.write(", ")
-            f.write("}]")
+                if last < total:
+                    f.write(", ")
+            f.write("]}")
