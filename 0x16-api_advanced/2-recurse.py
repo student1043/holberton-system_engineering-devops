@@ -17,8 +17,12 @@ def recurse(subreddit, hot_list=[], after=""):
             after = rdata['data']['after']
             for i in rdata['data']['children']:
                 hot_list.append(i['data']['title'])
-            return hot_list
-        except KeyError:
+        except KeyError or AttributeError:
             return None
         if after:
             recurse(subreddit, hot_list, after)
+        if len(hot_list) > 0:
+            return hot_list
+        else:
+            return None
+
