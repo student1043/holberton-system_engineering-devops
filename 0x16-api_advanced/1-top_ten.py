@@ -19,5 +19,5 @@ def top_ten(subreddit):
                 index += 1
                 if index == 10:
                     break
-        except AttributeError:
+        except KeyError:
             print(None)
